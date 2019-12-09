@@ -44,3 +44,6 @@ let asentamientos = [
 let final = asentamientos.filter((value, index, array) => { return value.cp.substring(1, 2) == 6 }).map((value, index, array) => {return { value: index + 1, label: value.asentamiento };});
 
 console.log(final); 
+
+//console.log("===================================\n");
+
