@@ -44,7 +44,6 @@ let asentamiento = [
     {cp:55020, asentamiento: '10 de Abril'}];
 console.log(asentamiento);
 console.log("-----RESULTADO-----");
-
 let resultado = asentamiento.filter((value,index, array) => {
     return value.cp < 50000
 })
@@ -53,6 +52,32 @@ let arreglo = resultado.map((value, index, array) =>{
     return{value: index +1, label:value.asentamiento}
 });
 console.log(arreglo)
+console.log("------------------");
+
+/*
+console.log("----CallBack---")
+function funcion1(dato, callback){
+    callback(dato);
+}
+function function1(second, callback){
+    setTimeout(callback, 1000*second)
+}
+function1(2, function(){alert('Pasaron algunos segundos');});
+console.log("------------------");
+*/
+
+/*La flecha ayuda a no escribir function()*/
+saludo = () =>{
+    return "Hola Mundo";
+}
+console.log(saludo());
+console.log("------------------");
+
+(function () {
+    var tmp = ...;
+}() );
+
+
 
 
 
