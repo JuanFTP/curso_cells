@@ -81,3 +81,12 @@ let rst = () => 10;
 console.log(saludo);
 console.log(saludo_dos);
 console.log(rst);
+
+//console.log("===================================\n");
+
+//IIFE Ailasmiento de código
+//Función anónima que se ejecuta inmediatamenteFin
+(function () {
+    var tmp = "Hola";
+    console.log(tmp);
+}());
