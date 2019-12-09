@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hover</title>
+</head>
+    <style>
+        .pseudoelemento::first-line{
+            color: blue;
+            text-transform: uppercase;
+        }
+        p::first-letter{
+            font-weight: bold;
+            font-size: 50px;
+            color: red;
+            text-transform: uppercase;
+        }
+        h1::before{
+            content: "Capítulo - ";
+        }
+        p::after{
+            content: ".Aqui termina perro";
+        }
+    </style>
+
+<body>
+    <h1>Pseudoelementos</h1>
+    <p class="pseudoelemento">El estilo solo será aplicado a la primer línea de este parrafo. Despues de esto, todo el texto tendrá un estilo normal. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae nobis fuga sed tenetur ipsa itaque, perspiciatis rem! Ut iusto, eius odio quaerat quibusdam, animi dignissimos quos facere consectetur, hic eaque?
+    Cupiditate a atque voluptate nobis odit unde facilis deserunt eveniet deleniti, quaerat modi fuga optio, impedit cum commodi esse. Ipsa voluptate corrupti amet quia. Quod ducimus distinctio doloribus dignissimos tempora.
+    Deleniti, placeat culpa? Similique harum rem exercitationem autem, necessitatibus dolore perferendis unde nobis velit alias animi voluptate nihil hic illo voluptates. Nesciunt ad omnis aliquid nisi tempore illo eveniet assumenda.
+    Maiores illo nesciunt sed non ipsa impedit officiis dolorum enim vero ut optio consequatur error alias, dolores ullam debitis ipsum quis distinctio dolorem, rerum quam! Est commodi aspernatur reprehenderit voluptatum!
+    Repudiandae quo saepe necessitatibus voluptates illum laborum iste maxime inventore ipsa minus ullam fugit ut vitae eaque beatae optio maiores libero officiis quasi dicta, veniam eos aut impedit ad. Ducimus.</p>
+</body>
+</html>
