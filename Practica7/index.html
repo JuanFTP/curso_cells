@@ -15,15 +15,22 @@
                 width: 600px;
                 height: 600px;
                 background-color: yellow;
-                padding-left: 20px;
-                padding-top: 5px;
+                padding: 20px 20px;
             }
 
             .content .square{
                 width: 70px;
                 height: 70px;
                 background-color: red;
-                border: solid 2px blue;
+                border: solid 4px blue;
+                border-radius: 10px; /*Valor del radio*/
+                box-shadow: 10px 10px rgb(132, 196, 132); /*distanciaX, distanciaY, color*/
+                transform: rotateZ(45deg);/*Que tanto rota*/
+                float: right;
+            }
+
+            .content .square:hover{/*Al poner el cursor sobre el objeto, hara esto*/
+                background-color: green;
             }
         </style>
 </head>
