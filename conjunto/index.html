@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hover</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+
+        .content {
+            width: 80%;
+            margin: auto;
+        }
+
+            .line {
+                display: block;
+                padding: 20px 0px;
+            }
+
+                h2, h3, h4 {
+                    margin-bottom: 10px;
+                }
+
+                h2:before, h3:before, h4:before {
+                    content: "Capítulo - ";
+                }
+
+                p::after {
+                    content: ".";
+                }
+
+                /*Pseudoclases*/
+                p:hover {
+                    background-color: #F89B4D;
+                }
+
+                input {
+                    height: 30px;
+                    font-size: 14px;
+                    padding: 0px 10px;
+                }
+
+                input:invalid {
+                    border: 1px solid red;
+                }
+
+                input:valid {
+                    border: 1px solid green;
+                }
+                
+                /*Pseudoelementos*/
+                .pseudoelemento::first-line {
+                    color: blue;
+                    text-transform: uppercase;
+                }
+
+                .pseudoelemento::first-letter {
+                    color: red;
+                    font-weight: bold;
+                }
+
+                /*Diseño responsivo Mediaquerys o Breakpoints*/
+                @media only screen and (max-width: 720px) {
+                    body {
+                        background-color: red;
+                    }
+                }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="line">
+            <h2>Pseudoclases</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <form action="#">
+                <input type="email" required/>
+            </form>
+        </div>
+
+        <div class="line">
+            <h2>Pseudoelementos</h2>
+            <p class="pseudoelemento">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ullam ducimus fugiat fuga earum facere esse itaque tempore totam maxime quasi, suscipit nisi repellendus temporibus reprehenderit fugit a consequatur voluptate nostrum voluptatum. Mollitia nemo quos libero minus, consequuntur ab rem asperiores hic saepe ea deleniti esse odio debitis nulla doloremque laboriosam corporis possimus, vitae culpa. Quidem repellendus consequuntur nisi ex ea alias, ratione dolor cumque soluta dicta consectetur, cupiditate placeat sequi numquam, reprehenderit nostrum beatae laborum quos maiores! Odit officiis reprehenderit nemo error cumque harum omnis, veniam esse tempora maxime sunt libero officia explicabo labore facere, pariatur incidunt laboriosam nihil voluptatem dolores ullam tempore commodi sed autem. Perferendis, corrupti. Sed consequatur voluptates necessitatibus cupiditate repellat dignissimos quidem, odit explicabo optio eius fuga corrupti mollitia pariatur, corporis, reiciendis dolorum dicta ratione labore quas doloremque qui. Nesciunt rerum doloremque nam perspiciatis culpa, explicabo iure obcaecati placeat ex natus laboriosam blanditiis ipsum repudiandae voluptas quos perferendis, incidunt eum distinctio laudantium? Voluptatum vitae quibusdam odio sed id ullam excepturi quidem iste soluta numquam architecto ex sunt velit et accusamus, qui obcaecati? Adipisci cumque, distinctio velit nulla consequatur possimus accusamus fugit consectetur, vitae ex iste qui libero quibusdam cupiditate ab corporis repudiandae placeat sunt quia!
+            </p>
+        </div>
+
+        <div class="line">
+            <h2>Responsividad</h2>
+            <ul>
+                <li><a href="Sitio_01.html">Sitio_01</a></li>
+                <li><a href="/practica_08/Formulario.html">Práctica_08</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

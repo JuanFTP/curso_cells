@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sitio_01</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+     </style>
+</head>
+<body>
+    <header>
+        <h1>Chania</h1>
+    </header>
+    <section class="row">
+        <div class="col-3 menu">
+            <ul>
+                <li>The Flight</li>
+                <li>The City</li>
+            </ul>
+        </div>
+
+        <div class="col-6">
+            <h1>The City</h1>
+            <p>Chania is the capital of Chania region.</p>
+        </div>
+
+        <div class="col-3 right">
+            <aside>
+                <h2>What?</h2>
+                <p>Chania is a city on the island od Crete.</p>
+            </aside>
+        </div>
+    </section>
+    <footer>
+        <p>Resize the browser window to see how the content respond to the resizing.</p>
+    </footer>
+</body>
+</html>
