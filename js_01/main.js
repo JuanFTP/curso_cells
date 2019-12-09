@@ -47,3 +47,37 @@ console.log(final);
 
 //console.log("===================================\n");
 
+function funcion1(dato, callback) {
+    callback(dato);
+}
+
+/*funcion1(1, function(rzx) {
+        alert("Holi: "+rzx);
+    }
+);*/
+
+function funcion1 (seconds, callback) {
+    setTimeout(callback, 1000*seconds);
+}
+
+/*funcion1(2, function() {
+        alert("Pasaron algunos segundos");
+    }
+);*/
+
+//console.log("===================================\n");
+
+saludo = function() {
+    return  "Hola Mundo";
+};
+
+saludo_dos = () => {
+    return "Hola Mundo";
+}
+
+let rst = () => 10;
+
+
+console.log(saludo);
+console.log(saludo_dos);
+console.log(rst);
