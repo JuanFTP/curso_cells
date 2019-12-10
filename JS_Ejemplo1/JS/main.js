@@ -103,6 +103,7 @@ console.log(inc());
 console.log("------------------");
 
 
+//Encontrar elementos 
 
 /*Para cargar primero toda la página y luego empezar a buscar dentro del head
 <script>
@@ -144,3 +145,12 @@ console.log("querySelectorAll");
 document.querySelectorAll("#ejemplo1 li");
 console.log(document.querySelectorAll("#ejemplo1 li"));
 console.log("------------------");
+
+//Encontrar un input
+console.log("Aspectos del input");
+let input = document.getElementById("inputTest");
+console.log(input.type);
+console.log(input.name);
+console.log(input.style.color);
+console.log(input.value);
+input.style.backgroundColor = 'orage';
