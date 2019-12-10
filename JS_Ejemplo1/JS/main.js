@@ -154,3 +154,45 @@ console.log(input.name);
 console.log(input.style.color);
 console.log(input.value);
 input.style.backgroundColor = 'orage';
+
+
+
+//Eventos
+let miFuncion = function() {
+    console.log("Has pulsao el boton incorrecto")
+}
+document.getElementById("btn1").addEventListener("click", miFuncion);
+console.log(document.getElementById("btn1"));
+
+
+//Crear elementos de HTML desde JS
+
+//createElement
+/*
+let ul = document.getElementById("contenedor");
+let li = document.createElement("li");
+let newtext = document.createTextNode("nuevoTexto");
+li.appendChild(newtext);
+ul.appendChild(li);
+*/
+
+
+//Ventanas emergentes
+/*
+var alert = '';
+if(confirm("Presione un botón!!")) {
+    alert = "Presionaste Aceptar!";
+} else {
+    alert = "Presionaste Cancelar!";
+}
+console.log(alert);
+*/
+
+var alert2;
+var person = prompt("Por favor escribe tu nombre", "Rebeca");
+if(person == null || person == ""){
+    alert2 = "El usuario cancelo";
+} else{
+    alert2 = "Hola " + person + " Largo de aqui"
+}
+console.log(alert2);
