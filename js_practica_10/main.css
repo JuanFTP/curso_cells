@@ -1,0 +1,32 @@
+* {
+    font-family: sans-serif;
+}
+
+.input {
+    overflow: hidden;
+}
+
+.input p,
+.input input,
+.input button {
+    float: left;
+    height: 40px;
+    margin: 10px;
+}
+
+    .input p {
+        line-height: 40px;
+    }
+
+    .input input,
+    .input button {
+        padding: 0px 10px;
+    }
+
+    .par {
+        background-color: lightblue;
+    }
+
+    .impar {
+        background-color: lightseagreen;
+    }
