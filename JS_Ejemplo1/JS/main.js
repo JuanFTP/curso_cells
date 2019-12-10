@@ -169,11 +169,11 @@ console.log(document.getElementById("btn1"));
 
 //createElement
 /*
-let ul = document.getElementById("contenedor");
-let li = document.createElement("li");
-let newtext = document.createTextNode("nuevoTexto");
-li.appendChild(newtext);
-ul.appendChild(li);
+let ul = document.getElementById("lista");
+    let li = document.createElement("li");
+    let newtext = document.createTextNode(input.value);
+    li.appendChild(newtext);
+    ul.appendChild(li);
 */
 
 
