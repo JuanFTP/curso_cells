@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+input:valid {
+    border: solid 1px green;
+}
+
+input:invalid {
+    border: solid 1px red;
+}
+
+span {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+span.error.active {
+    color: white;
+    background-color: red;
+}
+
+span.success {
+    color: white;
+    background-color: green;
+}

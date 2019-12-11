@@ -6,8 +6,8 @@
 }
 
 .form_entradas {
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
 }
 
 .box {
@@ -74,16 +74,16 @@ h1, h2, .instruccion {
         border-left: solid 3px rgba(0, 0, 0, 0.2);
     }
 
-        .entradas .line input:invalid,
-        .entradas .line select:invalid,
-        .entradas .line textarea:invalid {
+        .entradas .line input.invalid,
+        .entradas .line select.invalid,
+        .entradas .line textarea.invalid {
             background-color: rgba(255, 0, 0, 0.075);
             border-left-color: red;
         }
 
-        .entradas .line input:valid,
-        .entradas .line select:valid,
-        .entradas .line textarea:valid {
+        .entradas .line input.valid,
+        .entradas .line select.valid,
+        .entradas .line textarea.valid {
             background-color: rgba(0, 255, 0, 0.075);
             border-left-color: green;
         }
@@ -201,3 +201,27 @@ h1, h2, .instruccion {
         color: white;
         background-color: rgb(0, 69, 158);
     }
+
+.mensaje {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #103c66;
+    background-color: rgba(184, 221, 255, 0.3);
+    border: solid 1px #b8ddff;
+    border-radius: 10px;
+}
+
+.mensaje.error {
+    color: #661010;
+    background-color: rgba(255, 184, 184, 0.3);
+    border: solid 1px #ffb8b8;
+}
+
+.mensaje.correcto {
+    color: #106623;
+    background-color: rgba(184, 255, 196, 0.3);
+    border: solid 1px #b8ffd0;
+}
