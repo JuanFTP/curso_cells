@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practica16</title>
+    <link rel="stylesheet" href="/Practica 16/estilos.css">
+</head>
+
+<body>
+
+    <div class="form_entradas">
+        <div class="box">
+            <h1 class="center">Articulos</h1>
+            <form id="datos_form" action="#" novalidate>
+                <h2 class="center">Registro</h2>
+                <p class="instruccion">Por favor llene el formulario para crear un artículo.</p>
+                <hr>
+                <div class="entradas">
+                    <div class="line">
+                        <div id="mensaje"></div>
+                    </div>
+                    <div class="line">
+                        <p>Título:</p>
+                        <input id="titulo" value="" name="titulo" type="text" placeholder="Ingrese el título" required>
+                    </div>
+
+                    <div class="line">
+                        <p>Autor:</p>
+                        <input id="autor" value="" name="autor" type="text" placeholder="Ingrese el autor" required>
+                    </div>
+
+                    <div class="line">
+                        <p>Tipo:</p>
+                        <select name="tipo" id="tipo" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="A">Aviso</option>
+                            <option value="R">Registro</option>
+                        </select>
+                    </div>
+
+                    <div class="line">
+                        <p>Fecha de publicación:</p>
+                        <input type="date" name="fecha" id="fecha" required>
+                    </div>
+
+                    <div class="line">
+                        <p class="textarea">Texto:</p>
+                        <textarea name="texto" id="texto" required></textarea>
+                    </div>
+
+                    <div class="line">
+                        <div class="buttons">
+                            <button type="submit">Guardar</button>
+                            <button type="reset">Limpiar</button>
+                            <button id="cancelar">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+    <script src="/Practica 16/main.js"></script>
+
+</body>
+
+</html>
