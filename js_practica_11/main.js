@@ -21,7 +21,6 @@ let productos = [
 ];
 
 //Variables a utilizar
-let data_resultados = [];
 let data_departamentos = [];
 let data_categorias = [];
 let data_productos = [];
