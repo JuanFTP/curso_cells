@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validacion de Forms</title>
+    <link rel="stylesheet" href="/ValidacionDeForms/estilos.css">
+</head>
+<body>
+    <form action="">
+        <label for="choose">¿Preferirias un platano o una cereza?</label>
+        <input id="choose" name="i_like" pattern="platano|cereza" type="text" required>
+        <button>Enviar</button>
+    </form>
+
+    <form action="#">
+        <label for="mail">Quisiera que me proporcionaras tu dirección de correo electrónico</label>
+        <input type="email" id="mail" name="mail" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="/ValidacionDeForms/main.js"></script>
+    
+</body>
+</html>
