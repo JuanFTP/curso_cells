@@ -146,12 +146,10 @@ function showDataFilter() {
         }
         for(let xx = 0; xx < productos_filtrados.length; xx++) {
             acum += "<tr>";
-            for(let xds = 0; xds < productos_filtrados[xx].length; xds++) {
                 acum += "<td>"+productos_filtrados[xx][0]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][1]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][2]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][3]+"</td>";
-            }
             acum += "</tr>";
         }
         tabla.innerHTML = acum;
@@ -173,12 +171,36 @@ function showDataFilter() {
         }
         for(let xx = 0; xx < productos_filtrados.length; xx++) {
             acum += "<tr>";
-            for(let xds = 0; xds < productos_filtrados[xx].length; xds++) {
                 acum += "<td>"+productos_filtrados[xx][0]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][1]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][2]+"</td>";
                 acum += "<td>"+productos_filtrados[xx][3]+"</td>";
+            acum += "</tr>";
+        }
+        tabla.innerHTML = acum;
+    } else if((departamento_seleccionado == 0) && (categoria_seleccionada != 0)) {
+        acum = "";
+        productos_filtrados = [];
+        tabla.innerHTML = "";
+        let groups_id = [];
+        categorias.forEach(element => {
+            if(element.nombre == categoria_seleccionada) {
+                groups_id.push([element.id, element.nombre]);
             }
+        });
+        for(let rd = 0; rd < groups_id.length; rd++) {
+            for(let pro = 0; pro < productos.length; pro++) {
+                if(productos[pro].categoriaID == groups_id[rd][0]) {
+                    productos_filtrados.push([groups_id[rd][1], productos[pro].descripcion, productos[pro].marca, productos[pro].precio]);
+                }
+            }
+        }
+        for(let xx = 0; xx < productos_filtrados.length; xx++) {
+            acum += "<tr>";
+                acum += "<td>"+productos_filtrados[xx][0]+"</td>";
+                acum += "<td>"+productos_filtrados[xx][1]+"</td>";
+                acum += "<td>"+productos_filtrados[xx][2]+"</td>";
+                acum += "<td>"+productos_filtrados[xx][3]+"</td>";
             acum += "</tr>";
         }
         tabla.innerHTML = acum;
