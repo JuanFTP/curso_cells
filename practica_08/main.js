@@ -20,10 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	let boton_cancelar = document.getElementById("cancelar");
 	let boton_agregar = document.getElementById("boton_agregar");
 	let botones_editar;
+	let botones_eliminar;
 
 	/*Bandera de actualización*/
 	let band_update = false;
 	let id_update = 0;
+	let id_delete = 0;
 
 	/*Variable para acumular datos de salida*/
 	let acum = "";
@@ -75,6 +77,28 @@ document.addEventListener("DOMContentLoaded", function () {
 			'Content-Type':'application/json'
 		},
 			body: JSON.stringify({titulo: titulo, autor: autor, tipo: tipo, fechaPublicacion: fecha, texto: texto}),
+			cache: 'no-cache'
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data) {
+			formulario_datos.reset();
+			detonarInicio();
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
+	}
+
+	/*Función de actualización*/
+	function updateReg(titulo, autor, tipo, fecha, texto, id) {
+		fetch('http://localhost:9090/api/articulo', {
+			method: 'PUT',
+			headers: {
+			'Content-Type':'application/json'
+		},
+			body: JSON.stringify({id: id, titulo: titulo, autor: autor, tipo: tipo, fechaPublicacion: fecha, texto: texto}),
 			cache: 'no-cache'
 		})
 		.then(function(response) {
@@ -144,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
 				} else {//Es una actualizacion
 					console.log("Actuzalizar registro");
+					updateReg(titulo.value, autor.value, tipo.value, fecha.value, texto.value, id_update);
 				}
 			} else {
 				mensaje.innerHTML = "¡Existen errores, corrigelos por favor!";
@@ -162,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	function getDataRegistro() {
-		console.log("Datos del registro a enviar: "+id_update);
 		data_actual = {};
 		for(let x = 0; x < data_registros.length; x++) {
 			if(data_registros[x].id == id_update) {
@@ -210,7 +234,19 @@ document.addEventListener("DOMContentLoaded", function () {
 				id_update = botones_editar[rtx].getAttribute("id_reg");
 				getDataRegistro();
 				boton_agregar.click();
-				console.log(id_update);
+			});
+		}
+
+		botones_eliminar = document.querySelectorAll("button.eliminar");
+		for(let rtx = 0; rtx < botones_eliminar.length; rtx++) {
+			botones_eliminar[rtx].addEventListener("click", function(e) {
+				id_delete = botones_eliminar[rtx].getAttribute("id_reg");
+				console.log("Registro a eliminar: "+id_delete);
+				if(confirm("¿Deseas eliminar el registro?")) {
+					console.log("Si quiere eliminarlo");
+				} else {
+					console.log("No, no quiso");
+				}
 			});
 		}
 		acum = "";
