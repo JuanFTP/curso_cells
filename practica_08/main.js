@@ -113,6 +113,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
+	/*Función de eliminación del regitro*/
+	function deteleReg(id) {
+		let url = "http://localhost:9090/api/articulo/"+id_delete;
+		fetch(url, {
+			method: 'DELETE',
+			headers: {
+			'Content-Type':'application/json'
+		},
+			body: JSON.stringify({id: id}),
+			cache: 'no-cache'
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data) {
+			formulario_datos.reset();
+			detonarInicio();
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
+	}
+
 	/*Boton cancelar evento*/
 	boton_cancelar.addEventListener("click", function(e) {
 		formulario_datos.reset();
@@ -241,11 +264,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		for(let rtx = 0; rtx < botones_eliminar.length; rtx++) {
 			botones_eliminar[rtx].addEventListener("click", function(e) {
 				id_delete = botones_eliminar[rtx].getAttribute("id_reg");
-				console.log("Registro a eliminar: "+id_delete);
 				if(confirm("¿Deseas eliminar el registro?")) {
-					console.log("Si quiere eliminarlo");
-				} else {
-					console.log("No, no quiso");
+					deteleReg(id_delete);
 				}
 			});
 		}
