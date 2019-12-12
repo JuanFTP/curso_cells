@@ -21,9 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	let boton_agregar = document.getElementById("boton_agregar");
 	let botones_editar;
 	let botones_eliminar;
+	let boton_noticia = document.getElementById("boton_noticia");
+	let boton_aviso = document.getElementById("boton_aviso");
 
 	/*Bandera de actualización*/
 	let band_update = false;
+	let band_filtrado = false;
+	let filtrado = "";
 	let id_update = 0;
 	let id_delete = 0;
 
@@ -58,10 +62,18 @@ document.addEventListener("DOMContentLoaded", function () {
 			if(data.data.length > 0) {
 				data_registros = [];
 				for(let r = 0; r < data.data.length; r++) {
-					data_registros.push({titulo: data.data[r].titulo, autor: data.data[r].autor, tipo: data.data[r].tipo, fecha: data.data[r].fechaPublicacion, texto: data.data[r].texto, id: data.data[r].id});
+					if(band_filtrado) {
+						if(data.data[r].tipo == filtrado) {
+							data_registros.push({titulo: data.data[r].titulo, autor: data.data[r].autor, tipo: data.data[r].tipo, fecha: data.data[r].fechaPublicacion, texto: data.data[r].texto, id: data.data[r].id});
+						}
+					} else {
+						data_registros.push({titulo: data.data[r].titulo, autor: data.data[r].autor, tipo: data.data[r].tipo, fecha: data.data[r].fechaPublicacion, texto: data.data[r].texto, id: data.data[r].id});
+					}
 				}
 			} else {
 				console.log("Sin datos que mostrar");
+				data_registros = [];
+				seccion_lista.innerHTML = "";
 			}
 		})
 		.catch(function(err) {
@@ -142,61 +154,61 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	formulario_datos.addEventListener("submit", function(e) {
-			e.preventDefault();
-			if(titulo.validity.typeMismatch || titulo.value == "") {
-				validTitulo = false;
-				titulo.className = "invalid";
-			} else {
-				validTitulo = true;
-				titulo.className = "valid";
-			}
-			
-			if(autor.validity.typeMismatch || autor.value == "") {
-				validAutor = false;
-				autor.className = "invalid";
-			} else {
-				validAutor = true;
-				autor.className = "valid";
-			}
+		e.preventDefault();
+		if(titulo.validity.typeMismatch || titulo.value == "") {
+			validTitulo = false;
+			titulo.className = "invalid";
+		} else {
+			validTitulo = true;
+			titulo.className = "valid";
+		}
+		
+		if(autor.validity.typeMismatch || autor.value == "") {
+			validAutor = false;
+			autor.className = "invalid";
+		} else {
+			validAutor = true;
+			autor.className = "valid";
+		}
 
-			if(tipo.validity.typeMismatch || tipo.value == "") {
-				validTipo = false;
-				tipo.className = "invalid";
-			} else {
-				validTipo = true;
-				tipo.className = "valid";
-			}
+		if(tipo.validity.typeMismatch || tipo.value == "") {
+			validTipo = false;
+			tipo.className = "invalid";
+		} else {
+			validTipo = true;
+			tipo.className = "valid";
+		}
 
-			if(fecha.validity.typeMismatch || fecha.value == "") {
-				validFecha = false;
-				fecha.className = "invalid";
-			} else {
-				validFecha = true;
-				fecha.className = "valid";
-			}
+		if(fecha.validity.typeMismatch || fecha.value == "") {
+			validFecha = false;
+			fecha.className = "invalid";
+		} else {
+			validFecha = true;
+			fecha.className = "valid";
+		}
 
-			if(texto.validity.typeMismatch || texto.value == "") {
-				validTexto = false;
-				texto.className = "invalid";
-			} else {
-				validTexto = true;
-				texto.className = "valid";
-			}
+		if(texto.validity.typeMismatch || texto.value == "") {
+			validTexto = false;
+			texto.className = "invalid";
+		} else {
+			validTexto = true;
+			texto.className = "valid";
+		}
 
-			//Validadores finales
-			if(validTitulo && validAutor && validTipo && validFecha && validTexto) {
-				mensaje.innerHTML = "¡Todo bien!";
-				mensaje.className = "mensaje correcto";
-				if(!band_update) {//Si no es una actualización 
-					insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
-				} else {//Es una actualizacion
-					console.log("Actuzalizar registro");
-					updateReg(titulo.value, autor.value, tipo.value, fecha.value, texto.value, id_update);
-				}
-			} else {
-				mensaje.innerHTML = "¡Existen errores, corrigelos por favor!";
-				mensaje.className = "mensaje error";
+		//Validadores finales
+		if(validTitulo && validAutor && validTipo && validFecha && validTexto) {
+			mensaje.innerHTML = "¡Todo bien!";
+			mensaje.className = "mensaje correcto";
+			if(!band_update) {//Si no es una actualización 
+				insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
+			} else {//Es una actualizacion
+				console.log("Actuzalizar registro");
+				updateReg(titulo.value, autor.value, tipo.value, fecha.value, texto.value, id_update);
 			}
+		} else {
+			mensaje.innerHTML = "¡Existen errores, corrigelos por favor!";
+			mensaje.className = "mensaje error";
+		}
 	});
 
 	formulario_datos.addEventListener("reset", function(e) {
@@ -271,4 +283,32 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 		acum = "";
 	}
+
+	boton_noticia.addEventListener("click", function(e) {
+		if(band_filtrado) {
+			this.className = "opcion";
+			band_filtrado = false;
+			detonarInicio();
+		} else {
+			this.className = "opcion activo";
+			boton_aviso.className = "opcion";
+			band_filtrado = true;
+			filtrado = "Noticia";
+			detonarInicio();
+		}
+	});
+
+	boton_aviso.addEventListener("click", function(e) {
+		if(band_filtrado) {
+			this.className = "opcion";
+			band_filtrado = false;
+			detonarInicio();
+		} else {
+			this.className = "opcion activo";
+			boton_noticia.className = "opcion";
+			band_filtrado = true;
+			filtrado = "Aviso";
+			detonarInicio();
+		}
+	});
 });
