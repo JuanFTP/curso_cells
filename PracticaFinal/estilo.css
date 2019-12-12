@@ -1,0 +1,150 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: bisque;
+}
+
+.box_form{
+    background-color: lightblue;
+    width: 600px;
+    height: 700px;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 40px;
+    text-align: center;
+    padding: 20px 10px;
+    overflow: hidden;
+    border: solid red 4px;
+}
+
+.box_form h1{
+    color: crimson;
+}
+
+form h2{ 
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 3px; 
+}
+
+form p{
+    text-align: left;
+    font: 100;
+    margin-bottom: 25px;
+    border-bottom: solid 3px black;
+    overflow: hidden;
+}
+
+.preguntas{
+    overflow: hidden;
+}
+
+.preguntas .pregunta{
+    margin: auto;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 90%;
+    align-items: center;
+
+}
+
+.preguntas .pregunta p{
+    margin-top: 10px;
+    font-size: 20px;
+    float: left;
+    border: none;
+    width: 40%;
+    height: 50px;
+    text-align: center;
+}
+
+.preguntas .pregunta input,
+.preguntas .pregunta select,
+.preguntas .pregunta textarea{
+    text-align: center;
+    float: right;
+    width: 60%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.preguntas .pregunta .botones{
+    height: 50px;
+}
+
+.preguntas .pregunta .botones button{
+    width: 120px;
+    height: 95%;
+    margin-left: 15px;
+    border-radius: 10px;
+    font: 400 20px system-ui;
+}
+
+.preguntas .pregunta .botones button:hover{
+    text-transform: uppercase;
+    background-color: lightgreen;
+}
+
+.preguntas .pregunta input:valid,
+.preguntas .pregunta select:valid,
+.preguntas .pregunta textarea:valid{
+    background-color: lightgreen;
+}
+
+.preguntas .pregunta input:invalid,
+.preguntas .pregunta select:invalid,
+.preguntas .pregunta textarea:invalid{
+    background-color: lightcoral;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.mensaje {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #103c66;
+    background-color: rgba(184, 221, 255, 0.3);
+    border: solid 1px #b8ddff;
+    border-radius: 10px;
+}
+
+.mensaje.error {
+    color: #661010;
+    background-color: rgba(255, 184, 184, 0.3);
+    border: solid 1px #ffb8b8;
+}
+
+.mensaje.correcto {
+    color: #106623;
+    background-color: rgba(184, 255, 196, 0.3);
+    border: solid 1px #b8ffd0;
+}
+
+
+
+/*Dinamic*/
+.oculto {
+    display: none;
+}
+
+.mostrar {
+    display: block;
+}
+
+

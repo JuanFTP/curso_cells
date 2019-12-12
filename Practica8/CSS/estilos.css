@@ -60,7 +60,7 @@
 
 .preguntas .pregunta input:valid,
 .preguntas .pregunta select:valid,
-.preguntas .pregunta textarean:valid{
+.preguntas .pregunta textarea:valid{
     background-color: rgb(185, 241, 194);
 }
 

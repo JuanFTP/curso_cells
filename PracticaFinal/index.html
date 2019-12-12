@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PracticaFinal</title>
+    <link rel="stylesheet" href="/PracticaFinal/estilo.css">
+</head>
+
+<body>
+
+    <div class="content">
+        <div id="box_form" class="box_form">
+            <!--Caja de preguntas-->
+            <h1>ARTICULOS</h1>
+            <form id="datos_form" action="#" novalidate>
+
+                <!--Encabezado de caja de preguntas-->
+                <h2 class="registro">Registro</h2>
+                <p class="p_registro">Por favor llene el formulario para crear un artículo.</p>
+
+                <!--Preguntas-->
+                <div class="preguntas">
+                    <!--Espacio mensaje-->
+                    <div class="pregunta">
+                        <div id="mensaje"></div>
+                    </div>
+
+                    <!--Preguntas Titulo-->
+                    <div class="pregunta">
+                        <p>Título: </p>
+                        <input id="titulo" type="text" placeholder="Introduce el título" required>
+                    </div>
+
+                    <!--Preguntas Autor-->
+                    <div class="pregunta">
+                        <p>Autor: </p>
+                        <input id="autor" type="text" placeholder="Introduce el título" required>
+                    </div>
+
+                    <!--Pregunta Tipo-->
+                    <div class="pregunta">
+                        <p>Tipo: </p>
+                        <select name="tipo" id="tipo" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="aviso">Aviso</option>
+                            <option value="registro">Registro</option>
+                        </select>
+                    </div>
+
+                    <!--Pregunta Fecha-->
+                    <div class="pregunta">
+                        <p>Fecha de publicación: </p>
+                        <input id="fecha" type="date" required>
+                    </div>
+
+                    <!--Pregunta Texto-->
+                    <div class="pregunta">
+                        <p class="textarea">Texto:</p>
+                        <textarea name="texto" id="texto" required placeholder="Introduce el texto"></textarea>
+                    </div>
+
+                    <!--Espacio de Botones-->
+                    <div class="pregunta">
+                        <div class="botones">
+                            <button type="submit">Guardar</button>
+                            <button type="reset">Limpiar</button>
+                            <button id="btn_cancelar">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="seccion_listado" class="oculto listado">
+        <div class="content">
+            <div class="line opciones">
+                <div class="buttons">
+                    <div class="opcion">Noticia</div>
+                    <div class="opcion">Aviso</div>
+                    <div id="boton_agregar" class="opcion activo">Agregar</div>
+                </div>
+            </div>
+            <div class="line">
+                <div id="lista_elementos" class="block activo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="/PracticaFinal/main.js"></script>
+</body>
+
+</html>
