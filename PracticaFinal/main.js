@@ -20,12 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	/*Botones*/
 	let boton_agregar = document.getElementById("boton_agregar");
-	let boton_cancelar = document.getElementById("cancelar");
+	let boton_cancelar = document.getElementById("btn_cancelar");
 
 	/*Variable para acumular datos de salida*/
 	let acum = "";
 
-	/*Datos*/
+    /*Datos*/
+
 	let data_registros = [
 		{
 			titulo: "Titulo",
@@ -51,7 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			texto: "Hola",
 			id: 3			
 		}
-	];
+    ];
+    
 
 	/*Detonar inicio*/
 	detonarInicio();
