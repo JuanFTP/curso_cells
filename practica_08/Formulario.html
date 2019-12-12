@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/practica_08/main.css">
 </head>
 <body>
-    <div class="form_entradas">
+    <div id="seccion_form" class="oculto form_entradas">
         <div class="box">
             <h1 class="center">Articulos</h1>
             <form id="datos_form" action="#" novalidate>
@@ -61,6 +61,22 @@
     </div>
     <br>
     <br>
+    <div id="seccion_listado" class="oculto listado">
+        <div class="content">
+            <div class="line opciones">
+                <div class="buttons">
+                    <div class="opcion">Noticia</div>
+                    <div class="opcion">Aviso</div>
+                    <div id="boton_agregar" class="opcion activo">Agregar</div>
+                </div>
+            </div>
+            <div class="line">
+                <div id="lista_elementos" class="block activo">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/practica_08/main.js"></script>
 </body>
 </html>

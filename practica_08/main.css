@@ -200,6 +200,7 @@ h1, h2, .instruccion {
         padding: 0px 20px;
         color: white;
         background-color: rgb(0, 69, 158);
+        cursor: pointer;
     }
 
 .mensaje {
@@ -224,4 +225,13 @@ h1, h2, .instruccion {
     color: #106623;
     background-color: rgba(184, 255, 196, 0.3);
     border: solid 1px #b8ffd0;
+}
+
+/*Dinamic*/
+.oculto {
+    display: none;
+}
+
+.mostrar {
+    display: block;
 }
