@@ -14,18 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
 	let texto = document.getElementById("texto");
 
 	/*Secciones*/
-	let seccion_form = document.getElementById("seccion_form");
-	let seccion_listado = document.getElementById("seccion_listado");
 	let seccion_lista = document.getElementById("lista_elementos");
 
 	/*Botones*/
 	let boton_cancelar = document.getElementById("cancelar");
+	let boton_agregar = document.getElementById("boton_agregar");
+	let botones_editar;
+
+	/*Bandera de actualización*/
+	let band_update = false;
+	let id_update = 0;
 
 	/*Variable para acumular datos de salida*/
 	let acum = "";
 
 	/*Datos*/
 	var data_registros = [];
+	var data_actual = {};
 	
 	detonarInicio();
 	
@@ -77,8 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		})
 		.then(function(data) {
 			formulario_datos.reset();
-			getAll();
-			setTimeout(detonarInicio, 1000);
+			detonarInicio();
 		})
 		.catch(function(err) {
 			console.error(err);
@@ -136,7 +140,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			if(validTitulo && validAutor && validTipo && validFecha && validTexto) {
 				mensaje.innerHTML = "¡Todo bien!";
 				mensaje.className = "mensaje correcto";
-				insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
+				if(!band_update) {//Si no es una actualización 
+					insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
+				} else {//Es una actualizacion
+					console.log("Actuzalizar registro");
+				}
 			} else {
 				mensaje.innerHTML = "¡Existen errores, corrigelos por favor!";
 				mensaje.className = "mensaje error";
@@ -152,6 +160,25 @@ document.addEventListener("DOMContentLoaded", function () {
 		texto.className = "";
 		mensaje.innerHTML = "";
 	});
+
+	function getDataRegistro() {
+		console.log("Datos del registro a enviar: "+id_update);
+		data_actual = {};
+		for(let x = 0; x < data_registros.length; x++) {
+			if(data_registros[x].id == id_update) {
+				data_actual = data_registros[x];
+				break;
+			}
+		}
+		
+		//Setear datos al formulario
+		titulo.value = data_actual.titulo;
+		autor.value = data_actual.autor;
+		tipo.value = data_actual.tipo;
+		fecha.value = data_actual.fecha;
+		texto.value = data_actual.texto;
+		band_update = true;
+	}
 
 	/*Muestra todos los elementos*/
 	function showAll() {
@@ -177,6 +204,15 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 
 		seccion_lista.innerHTML = acum;
+		botones_editar = document.querySelectorAll("button.editar");
+		for(let rtx = 0; rtx < botones_editar.length; rtx++) {
+			botones_editar[rtx].addEventListener("click", function(e) {
+				id_update = botones_editar[rtx].getAttribute("id_reg");
+				getDataRegistro();
+				boton_agregar.click();
+				console.log(id_update);
+			});
+		}
 		acum = "";
 	}
 });
