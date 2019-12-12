@@ -19,64 +19,75 @@ document.addEventListener("DOMContentLoaded", function () {
 	let seccion_lista = document.getElementById("lista_elementos");
 
 	/*Botones*/
-	let boton_agregar = document.getElementById("boton_agregar");
 	let boton_cancelar = document.getElementById("cancelar");
 
 	/*Variable para acumular datos de salida*/
 	let acum = "";
 
 	/*Datos*/
-	let data_registros = [
-		{
-			titulo: "Titulo",
-			autor: "Autor",
-			tipo: "Aviso",
-			fecha: "2019/12/23",
-			texto: "Hola",
-			id: 1		
-		},
-		{
-			titulo: "Titulo",
-			autor: "Autor",
-			tipo: "Aviso",
-			fecha: "2019/12/24",
-			texto: "Hola",
-			id: 2	
-		},
-		{
-			titulo: "Titulo",
-			autor: "Autor",
-			tipo: "Aviso",
-			fecha: "2019/12/25",
-			texto: "Hola",
-			id: 3			
-		}
-	];
-
-	/*Detonar inicio*/
+	var data_registros = [];
+	
 	detonarInicio();
+	
+	/*Esperar datos*/
 	function detonarInicio() {
-		if(data_registros.length == 0) {
-			/*Mostramos el form*/
-			seccion_form.className = "mostrar form_entradas";
-		} else if(data_registros.length > 0) {
-			/*Mostrar lista*/
-			seccion_listado.className = "mostrar listado";
-			showAll();
-		}
+		getAll();
+		setTimeout(showAll, 2000);
 	}
 
-	/*Boton agregar evento*/
-	boton_agregar.addEventListener("click", function() {
-		seccion_listado.className = "oculto listado";
-		seccion_form.className = "mostrar form_entradas";
-	});
+	/*Funcion para obtener todos los datos*/
+	function getAll() {
+		fetch('http://localhost:9090/api/articulo', {
+			method: 'GET',
+			headers: {
+			'Content-Type':'application/json'
+		},
+			cache: 'no-cache'
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data) {
+			if(data.data.length > 0) {
+				data_registros = [];
+				for(let r = 0; r < data.data.length; r++) {
+					data_registros.push({titulo: data.data[r].titulo, autor: data.data[r].autor, tipo: data.data[r].tipo, fecha: data.data[r].fechaPublicacion, texto: data.data[r].texto, id: data.data[r].id});
+				}
+			} else {
+				console.log("Sin datos que mostrar");
+			}
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
+	}
+
+	/*Función de inserción*/
+	function insertInto(titulo, autor, tipo, fecha, texto) {
+		fetch('http://localhost:9090/api/articulo', {
+			method: 'POST',
+			headers: {
+			'Content-Type':'application/json'
+		},
+			body: JSON.stringify({titulo: titulo, autor: autor, tipo: tipo, fechaPublicacion: fecha, texto: texto}),
+			cache: 'no-cache'
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data) {
+			formulario_datos.reset();
+			getAll();
+			setTimeout(detonarInicio, 1000);
+		})
+		.catch(function(err) {
+			console.error(err);
+		});
+	}
 
 	/*Boton cancelar evento*/
 	boton_cancelar.addEventListener("click", function(e) {
-		e.preventDefault();
-		seccion_form.className = "oculto form_entradas";
-		seccion_listado.className = "mostrar listado";
+		formulario_datos.reset();
 	});
 
 	formulario_datos.addEventListener("submit", function(e) {
@@ -125,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			if(validTitulo && validAutor && validTipo && validFecha && validTexto) {
 				mensaje.innerHTML = "¡Todo bien!";
 				mensaje.className = "mensaje correcto";
-				
+				insertInto(titulo.value, autor.value, tipo.value, fecha.value, texto.value);			
 			} else {
 				mensaje.innerHTML = "¡Existen errores, corrigelos por favor!";
 				mensaje.className = "mensaje error";
@@ -141,27 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		texto.className = "";
 		mensaje.innerHTML = "";
 	});
-
-	/*Funcion para obtener todos los datos*/
-	function getAll() {
-		data_registros = [];
-		fetch('http://localhost:9090/api/articulo', {
-			method: 'GET',
-			headers: {
-			'Content-Type':'application/json'
-		},
-			cache: 'no-cache'
-		})
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(data) {
-			console.log('data = ', data);
-		})
-		.catch(function(err) {
-			console.error(err);
-		});
-	}
 
 	/*Muestra todos los elementos*/
 	function showAll() {

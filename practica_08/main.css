@@ -31,6 +31,10 @@ h1, h2, .instruccion {
     margin-bottom: 10px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .center {
     text-align: center;
 }
@@ -133,7 +137,7 @@ h1, h2, .instruccion {
         overflow: hidden;
     }
 
-    .listado .line.opciones {
+    .listado .opciones {
         border-bottom: solid 1px rgba(0, 0, 0, 0.25);
         overflow: hidden;
     }
@@ -143,7 +147,7 @@ h1, h2, .instruccion {
         height: 40px;
     }
 
-        .listado .buttons .opcion {
+        .buttons .opcion {
             display: inline-block;
             height: 40px;
             line-height: 40px;
@@ -154,6 +158,7 @@ h1, h2, .instruccion {
             border-top: solid 1px rgba(0, 0, 0, 0.075);
             border-left: solid 1px rgba(0, 0, 0, 0.075);
             border-right: solid 1px rgba(0, 0, 0, 0.075);
+            cursor: pointer;
         }
 
         .listado .buttons .opcion.activo {

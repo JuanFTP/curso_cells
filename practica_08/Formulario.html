@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/practica_08/main.css">
 </head>
 <body>
-    <div id="seccion_form" class="oculto form_entradas">
+    <div id="seccion_form" class="mostrar form_entradas">
         <div class="box">
             <h1 class="center">Articulos</h1>
             <form id="datos_form" action="#" novalidate>
@@ -33,8 +33,8 @@
                         <p>Tipo:</p>
                         <select name="tipo" id="tipo" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="A">Aviso</option>
-                            <option value="R">Registro</option>
+                            <option value="Aviso">Aviso</option>
+                            <option value="Noticia">Noticia</option>
                         </select>
                     </div>
         
@@ -49,10 +49,12 @@
                     </div>
     
                     <div class="line">
-                        <div class="buttons">
-                            <button type="submit">Guardar</button>
-                            <button type="reset">Limpiar</button>
-                            <button id="cancelar">Cancelar</button>
+                        <div class="opciones">
+                            <div class="buttons">
+                                <button type="submit">Guardar</button>
+                                <button type="reset">Limpiar</button>
+                                <a id="cancelar" href="#seccion_listado" class="opcion">Cancelar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,13 +63,13 @@
     </div>
     <br>
     <br>
-    <div id="seccion_listado" class="oculto listado">
+    <div id="seccion_listado" class="mostrar listado">
         <div class="content">
             <div class="line opciones">
                 <div class="buttons">
                     <div class="opcion">Noticia</div>
                     <div class="opcion">Aviso</div>
-                    <div id="boton_agregar" class="opcion activo">Agregar</div>
+                    <a id="boton_agregar" class="opcion activo" href="#seccion_form">Agregar</a>
                 </div>
             </div>
             <div class="line">
