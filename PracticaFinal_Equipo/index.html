@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PracticaFinalAjax</title>
-    <link rel="stylesheet" href="/PracticaFinal_Equipo/estilos.css">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/practica_08/main.css">
 </head>
-
 <body>
-
     <div id="seccion_form" class="mostrar form_entradas">
         <div class="box">
             <h1 class="center">Articulos</h1>
@@ -26,12 +23,12 @@
                         <p>Título:</p>
                         <input id="titulo" value="" name="titulo" type="text" placeholder="Ingrese el título" required>
                     </div>
-
+        
                     <div class="line">
                         <p>Autor:</p>
                         <input id="autor" value="" name="autor" type="text" placeholder="Ingrese el autor" required>
                     </div>
-
+        
                     <div class="line">
                         <p>Tipo:</p>
                         <select name="tipo" id="tipo" required>
@@ -40,17 +37,17 @@
                             <option value="Noticia">Noticia</option>
                         </select>
                     </div>
-
+        
                     <div class="line">
                         <p>Fecha de publicación:</p>
                         <input type="date" name="fecha" id="fecha" required>
                     </div>
-
+        
                     <div class="line">
                         <p class="textarea">Texto:</p>
                         <textarea name="texto" id="texto" required></textarea>
                     </div>
-
+    
                     <div class="line">
                         <div class="opciones">
                             <div class="buttons">
@@ -70,8 +67,8 @@
         <div class="content">
             <div class="line opciones">
                 <div class="buttons">
-                    <div class="opcion">Noticia</div>
-                    <div class="opcion">Aviso</div>
+                    <div id="boton_noticia" class="opcion">Noticia</div>
+                    <div id="boton_aviso" class="opcion">Aviso</div>
                     <a id="boton_agregar" class="opcion activo" href="#seccion_form">Agregar</a>
                 </div>
             </div>
@@ -82,7 +79,6 @@
         </div>
     </div>
 
-    <script src="/PracticaFinal_Equipo/main.js"></script>
+    <script src="/practica_08/main.js"></script>
 </body>
-
 </html>
