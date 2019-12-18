@@ -1,90 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PracticaFinal</title>
-    <link rel="stylesheet" href="/PracticaFinal/estilo.css">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="./estilo.css">
 </head>
-
 <body>
-
-    <div class="content">
-        <div id="box_form" class="box_form">
-            <!--Caja de preguntas-->
-            <h1>ARTICULOS</h1>
+    <div id="seccion_form" class="mostrar form_entradas">
+        <div class="box">
+            <h1 class="center">Articulos</h1>
             <form id="datos_form" action="#" novalidate>
-
-                <!--Encabezado de caja de preguntas-->
-                <h2 class="registro">Registro</h2>
-                <p class="p_registro">Por favor llene el formulario para crear un artículo.</p>
-
-                <!--Preguntas-->
-                <div class="preguntas">
-                    <!--Espacio mensaje-->
-                    <div class="pregunta">
+                <h2 class="center">Registro</h2>
+                <p class="instruccion">Por favor llene el formulario para crear un artículo.</p>
+                <hr>
+                <div class="entradas">
+                    <div class="line">
                         <div id="mensaje"></div>
                     </div>
-
-                    <!--Preguntas Titulo-->
-                    <div class="pregunta">
-                        <p>Título: </p>
-                        <input id="titulo" type="text" placeholder="Introduce el título" required>
+                    <div class="line">
+                        <p>Título:</p>
+                        <input id="titulo" value="" name="titulo" type="text" placeholder="Ingrese el título" required>
                     </div>
-
-                    <!--Preguntas Autor-->
-                    <div class="pregunta">
-                        <p>Autor: </p>
-                        <input id="autor" type="text" placeholder="Introduce el título" required>
+        
+                    <div class="line">
+                        <p>Autor:</p>
+                        <input id="autor" value="" name="autor" type="text" placeholder="Ingrese el autor" required>
                     </div>
-
-                    <!--Pregunta Tipo-->
-                    <div class="pregunta">
-                        <p>Tipo: </p>
+        
+                    <div class="line">
+                        <p>Tipo:</p>
                         <select name="tipo" id="tipo" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="aviso">Aviso</option>
-                            <option value="registro">Registro</option>
+                            <option value="Aviso">Aviso</option>
+                            <option value="Noticia">Noticia</option>
                         </select>
                     </div>
-
-                    <!--Pregunta Fecha-->
-                    <div class="pregunta">
-                        <p>Fecha de publicación: </p>
-                        <input id="fecha" type="date" required>
+        
+                    <div class="line">
+                        <p>Fecha de publicación:</p>
+                        <input type="date" name="fecha" id="fecha" required>
                     </div>
-
-                    <!--Pregunta Texto-->
-                    <div class="pregunta">
+        
+                    <div class="line">
                         <p class="textarea">Texto:</p>
-                        <textarea name="texto" id="texto" required placeholder="Introduce el texto"></textarea>
+                        <textarea name="texto" id="texto" required></textarea>
                     </div>
-
-                    <!--Espacio de Botones-->
-                    <div class="pregunta">
-                        <div class="botones">
-                            <button type="submit">Guardar</button>
-                            <button type="reset">Limpiar</button>
-                            <button id="btn_cancelar">Cancelar</button>
+    
+                    <div class="line">
+                        <div class="opciones">
+                            <div class="buttons">
+                                <button type="submit">Guardar</button>
+                                <button type="reset">Limpiar</button>
+                                <a id="cancelar" href="#seccion_listado" class="opcion">Cancelar</a>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>
     </div>
     <br>
     <br>
-    <br>
-    <div id="seccion_listado" class="oculto listado">
+    <div id="seccion_listado" class="mostrar listado">
         <div class="content">
             <div class="line opciones">
                 <div class="buttons">
-                    <div class="opcion"></div>
-                    <div class="opcion"></div>
-                    <div id="boton_agregar" class="opcion activo"></div>
+                    <div id="boton_noticia" class="opcion">Noticia</div>
+                    <div id="boton_aviso" class="opcion">Aviso</div>
+                    <a id="boton_agregar" class="opcion activo" href="#seccion_form">Agregar</a>
                 </div>
             </div>
             <div class="line">
@@ -94,9 +79,6 @@
         </div>
     </div>
 
-
-
-    <script src="/PracticaFinal/main.js"></script>
+    <script src="./main.js"></script>
 </body>
-
 </html>
